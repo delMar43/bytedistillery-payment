@@ -139,6 +139,5 @@
     <module>../payment-core</module>
     <module>../payment-sofort</module>
     <module>../payment-wirecard-qpay</module>
-    <module>../payment-paypal-express</module>
   </modules>
 </project>
