@@ -38,7 +38,7 @@
     <dependencies>
       <dependency>
         <groupId>at.pagu.payment</groupId>
-        <artifactId>payment-core</artifactId>
+        <artifactId>payment-common</artifactId>
         <version>${payment.version}</version>
       </dependency>
 
@@ -136,7 +136,7 @@
   </build>
   
   <modules>
-    <module>../payment-core</module>
+    <module>../payment-common</module>
     <module>../payment-sofort</module>
     <module>../payment-wirecard-qpay</module>
   </modules>
