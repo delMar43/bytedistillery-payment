@@ -137,6 +137,7 @@
   
   <modules>
     <module>../payment-common</module>
+    <module>../payment-sofort-classic</module>
     <module>../payment-sofort</module>
     <module>../payment-wirecard-qpay</module>
   </modules>

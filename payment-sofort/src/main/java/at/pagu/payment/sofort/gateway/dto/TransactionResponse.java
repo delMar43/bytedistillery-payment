@@ -1,4 +1,4 @@
-package at.pagu.payment.sofort.dto;
+package at.pagu.payment.sofort.gateway.dto;
 
 public class TransactionResponse {
 

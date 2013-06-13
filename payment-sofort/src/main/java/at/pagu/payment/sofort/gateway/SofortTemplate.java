@@ -1,4 +1,4 @@
-package at.pagu.payment.sofort;
+package at.pagu.payment.sofort.gateway;
 
 import java.io.StringReader;
 import java.io.StringWriter;
@@ -25,13 +25,13 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import at.pagu.payment.common.AbstractHttpBinding;
-import at.pagu.payment.sofort.dto.ErrorData;
-import at.pagu.payment.sofort.dto.SofortTransactionParameters;
-import at.pagu.payment.sofort.dto.TransactionData;
-import at.pagu.payment.sofort.dto.TransactionErrors;
-import at.pagu.payment.sofort.dto.TransactionResponse;
-import at.pagu.payment.sofort.dto.TransactionStatus;
-import at.pagu.payment.sofort.xml.Multipay;
+import at.pagu.payment.sofort.gateway.dto.ErrorData;
+import at.pagu.payment.sofort.gateway.dto.SofortTransactionParameters;
+import at.pagu.payment.sofort.gateway.dto.TransactionData;
+import at.pagu.payment.sofort.gateway.dto.TransactionErrors;
+import at.pagu.payment.sofort.gateway.dto.TransactionResponse;
+import at.pagu.payment.sofort.gateway.dto.TransactionStatus;
+import at.pagu.payment.sofort.gateway.xml.Multipay;
 
 public class SofortTemplate extends AbstractHttpBinding {
 

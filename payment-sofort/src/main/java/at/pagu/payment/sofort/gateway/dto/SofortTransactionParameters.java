@@ -1,4 +1,4 @@
-package at.pagu.payment.sofort.dto;
+package at.pagu.payment.sofort.gateway.dto;
 
 import java.math.BigDecimal;
 import java.util.Collections;

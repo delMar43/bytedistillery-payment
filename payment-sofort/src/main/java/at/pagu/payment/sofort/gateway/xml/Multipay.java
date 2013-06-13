@@ -1,4 +1,4 @@
-package at.pagu.payment.sofort.xml;
+package at.pagu.payment.sofort.gateway.xml;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

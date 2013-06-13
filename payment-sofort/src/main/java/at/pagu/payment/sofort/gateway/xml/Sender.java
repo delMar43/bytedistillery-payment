@@ -1,4 +1,4 @@
-package at.pagu.payment.sofort.xml;
+package at.pagu.payment.sofort.gateway.xml;
 
 public class Sender {
   private String holder;

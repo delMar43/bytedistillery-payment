@@ -1,4 +1,4 @@
-package at.pagu.payment.sofort;
+package at.pagu.payment.sofort.gateway;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -9,8 +9,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import at.pagu.payment.sofort.dto.SofortTransactionParameters;
-import at.pagu.payment.sofort.dto.TransactionResponse;
+import at.pagu.payment.sofort.gateway.SofortTemplate;
+import at.pagu.payment.sofort.gateway.dto.SofortTransactionParameters;
+import at.pagu.payment.sofort.gateway.dto.TransactionResponse;
 
 public class SofortTemplateTest {
 
