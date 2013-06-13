@@ -1,4 +1,4 @@
-package at.pagu.payment.core;
+package at.pagu.payment.common;
 
 import java.io.IOException;
 import java.io.InputStream;
