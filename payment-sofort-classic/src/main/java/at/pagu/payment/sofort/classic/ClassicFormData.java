@@ -72,4 +72,5 @@ public class ClassicFormData {
   public void setUserVariables(Map<String, String> userVariables) {
     this.userVariables = userVariables;
   }
+
 }

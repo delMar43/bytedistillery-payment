@@ -13,7 +13,7 @@ public class SofortClassicTemplate {
 
   private String formActionUrl = "https://www.sofort.com/payment/start";
   private String formTarget = "_blank";
-  private String formName = "sofortHiddenForm";
+  private String formName = "sofortClassicForm";
   private ClassicFormData formData;
 
   public String generateHtmlForm() {
