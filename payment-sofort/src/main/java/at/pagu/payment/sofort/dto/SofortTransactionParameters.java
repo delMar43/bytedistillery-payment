@@ -4,15 +4,13 @@ import java.math.BigDecimal;
 import java.util.Collections;
 import java.util.List;
 
-import at.pagu.payment.core.dto.TransactionParameters;
-
 /**
  * apiKey and customerId must be set before the parameters object is set on the template
  * 
  * @author martin
  * 
  */
-public class SofortTransactionParameters implements TransactionParameters {
+public class SofortTransactionParameters {
 
   private String apiKey;
   private String customerId;

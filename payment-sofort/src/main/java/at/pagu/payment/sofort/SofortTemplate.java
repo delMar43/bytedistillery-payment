@@ -17,13 +17,14 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.w3c.dom.CDATASection;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import at.pagu.payment.core.AbstractHttpBinding;
+import at.pagu.payment.common.AbstractHttpBinding;
 import at.pagu.payment.sofort.dto.ErrorData;
 import at.pagu.payment.sofort.dto.SofortTransactionParameters;
 import at.pagu.payment.sofort.dto.TransactionData;
@@ -41,7 +42,7 @@ public class SofortTemplate extends AbstractHttpBinding {
 
   private SofortTransactionParameters transactionParameters;
 
-  public TransactionResponse startTransaction(SofortTransactionParameters transactionParameters) {
+  public TransactionResponse startTransaction() {
     HttpPost httpPost = generatePost(createRequestXml(transactionParameters));
 
     String responseXml = executeHttpRequest(httpPost);
@@ -113,10 +114,9 @@ public class SofortTemplate extends AbstractHttpBinding {
     }
     Element reasonsNode = result.createElement("reasons");
     for (String reason : reasons) {
-      Element reasonNode = result.createElement("reason");
-
       String compiledReason = reason.replace("[date]", df.format(new Date()));
-      reasonNode.setTextContent(compiledReason);
+      Node reasonNode = createNode(result, "reason", compiledReason);
+
       reasonsNode.appendChild(reasonNode);
     }
     return reasonsNode;
@@ -124,7 +124,8 @@ public class SofortTemplate extends AbstractHttpBinding {
 
   private Node createNode(Document doc, String tagName, String tagValue) {
     Element result = doc.createElement(tagName);
-    result.setTextContent(tagValue);
+    CDATASection cdataSection = doc.createCDATASection(tagValue);
+    result.appendChild(cdataSection);
     return result;
   }
 

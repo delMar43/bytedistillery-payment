@@ -14,6 +14,5 @@
       <groupId>at.pagu.payment</groupId>
       <artifactId>payment-common</artifactId>
     </dependency>
-
   </dependencies>
 </project>

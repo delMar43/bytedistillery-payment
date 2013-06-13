@@ -31,12 +31,12 @@ public class SofortTemplateTest {
 
   @Test
   public void sucessfullyTransmitTransactionData() throws Exception {
-    SofortTransactionParameters transactionData = new SofortTransactionParameters();
+    SofortTransactionParameters transactionData = template.getTransactionParameters();
     transactionData.setAmount(BigDecimal.valueOf(200.3000));
     transactionData.setCurrencyCode("EUR");
     transactionData.setReasons(Collections.singletonList("meins"));
 
-    TransactionResponse data = template.startTransaction(transactionData);
+    TransactionResponse data = template.startTransaction();
 
     Assert.assertNotNull(data);
     Assert.assertTrue(data.isSuccessful());
@@ -44,11 +44,11 @@ public class SofortTemplateTest {
 
   @Test
   public void missingReasonsFails() throws Exception {
-    SofortTransactionParameters transactionData = new SofortTransactionParameters();
+    SofortTransactionParameters transactionData = template.getTransactionParameters();
     transactionData.setAmount(BigDecimal.valueOf(200.3000));
     transactionData.setCurrencyCode("EUR");
 
-    TransactionResponse data = template.startTransaction(transactionData);
+    TransactionResponse data = template.startTransaction();
 
     Assert.assertNotNull(data);
     Assert.assertFalse(data.isSuccessful());
