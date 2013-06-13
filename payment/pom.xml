@@ -16,9 +16,9 @@
   </properties>
   
   <scm>
-    <developerConnection>scm:svn:http://svn.intranet:3690/svn/pagu-checkout/trunk/${project.artifactId}</developerConnection>
-    <connection>scm:svn:http://svn.intranet:3690/svn/pagu-checkout/trunk/${project.artifactId}</connection>
-    <url>http://svn.intranet:3690/svn/pagu-checkout/trunk/${project.artifactId}</url>
+    <developerConnection>scm:git:https://github.com/ByteDistillery/bytedistillery-payment/${project.artifactId}</developerConnection>
+    <connection>scm:git:https://github.com/ByteDistillery/bytedistillery-payment/${project.artifactId}</connection>
+    <url>https://github.com/ByteDistillery/bytedistillery-payment/${project.artifactId}</url>
   </scm>
   
   <distributionManagement>
