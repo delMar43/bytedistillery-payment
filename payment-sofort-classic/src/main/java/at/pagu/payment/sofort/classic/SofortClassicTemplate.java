@@ -12,7 +12,7 @@ public class SofortClassicTemplate {
   private static final Logger logger = LoggerFactory.getLogger(SofortClassicTemplate.class);
 
   private String formActionUrl = "https://www.sofort.com/payment/start";
-  private String formTarget = "_blank";
+  private String formTarget;
   private String formName = "sofortClassicForm";
   private ClassicFormData formData;
 
