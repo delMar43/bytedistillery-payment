@@ -33,6 +33,7 @@ public class PayPalStarterTemplateTest {
     return formData;
   }
 
+  @Test
   public void generateXclickHtml() {
     template.generateHtmlForm();
   }
