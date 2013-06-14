@@ -6,13 +6,13 @@ public abstract class FormData {
 
   protected String business;
 
-  protected String notify_url;
+  private String notify_url;
   @XmlAttribute(name = "cancel_return")
-  protected String cancel_url; //cancel_return
+  private String cancel_url; //cancel_return
   @XmlAttribute(name = "return")
-  protected String success_url; //return
-  protected String currency_code;
-  protected String custom;
+  private String success_url; //return
+  private String currency_code;
+  private String custom;
 
   public String getBusiness() {
     return business;

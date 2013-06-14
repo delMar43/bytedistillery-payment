@@ -11,6 +11,17 @@ public class StarterCartFormData extends FormData {
 
   private List<CartItem> items;
 
+  public void setItems(List<CartItem> items) {
+    this.items = items;
+  }
+
+  public void addItems(List<CartItem> items) {
+    if (items == null) {
+      items = new ArrayList<CartItem>();
+    }
+    this.items.addAll(items);
+  }
+
   public void addItem(CartItem item) {
     if (items == null) {
       items = new ArrayList<CartItem>();

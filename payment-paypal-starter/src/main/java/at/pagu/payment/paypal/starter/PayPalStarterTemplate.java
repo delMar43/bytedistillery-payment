@@ -1,6 +1,7 @@
 package at.pagu.payment.paypal.starter;
 
 import java.lang.reflect.Field;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
 
@@ -19,7 +20,14 @@ public class PayPalStarterTemplate {
   public String generateHtmlForm() {
     StringBuilder result = generateFormTag();
 
-    generateFieldValues(formData.getClass(), result);
+    generateFieldValues(formData.getClass(), formData, "", result);
+    if (formData instanceof StarterCartFormData) {
+      List<CartItem> items = ((StarterCartFormData) formData).getItems();
+      int idx = 0;
+      for (CartItem item : items) {
+        generateFieldValues(item.getClass(), item, ("_" + ++idx), result);
+      }
+    }
 
     result.append("</form>\r\n");
 
@@ -42,34 +50,40 @@ public class PayPalStarterTemplate {
     return result;
   }
 
-  private void generateFieldValues(Class<?> clazz, StringBuilder result) {
+  private void generateFieldValues(Class<?> clazz, Object object, String fieldNameAppend, StringBuilder result) {
     if (clazz.getSuperclass() != Object.class) {
-      generateFieldValues(clazz.getSuperclass(), result);
+      generateFieldValues(clazz.getSuperclass(), object, fieldNameAppend, result);
     }
 
     Field[] fields = clazz.getDeclaredFields();
     for (Field field : fields) {
-      String value = handleField(field);
-      if (value != null) {
-        String inputName;
-        if (field.isAnnotationPresent(XmlAttribute.class)) {
-          XmlAttribute annotation = field.getAnnotation(XmlAttribute.class);
-          inputName = annotation.name();
-        } else {
-          inputName = field.getName();
-        }
-        result.append(createInput(inputName, value));
+      String value = handleField(field, object);
+      if (value == null) {
+        continue;
+      }
+
+      String inputName;
+      if (field.isAnnotationPresent(XmlAttribute.class)) {
+        XmlAttribute annotation = field.getAnnotation(XmlAttribute.class);
+        inputName = annotation.name();
+      } else {
+        inputName = field.getName();
+      }
+      if ("items".equals(inputName) || "optionalParameters".equals(inputName)) {
+        continue;
+      } else {
+        result.append(createInput(inputName + fieldNameAppend, value));
       }
     }
   }
 
-  private String handleField(Field field) {
+  private String handleField(Field field, Object object) {
     boolean accessible = field.isAccessible();
     if (!accessible) {
       field.setAccessible(true);
     }
     try {
-      Object valueObject = field.get(formData);
+      Object valueObject = field.get(object);
       field.setAccessible(accessible);
 
       if (valueObject == null) {

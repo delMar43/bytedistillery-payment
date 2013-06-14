@@ -7,6 +7,9 @@ public class StarterXclickFormData extends FormData {
   private String cmd = "_xclick";
 
   private BigDecimal amount;
+  private BigDecimal handling;
+  private BigDecimal tax;
+  private String invoice;
   private String item_name;
   private String item_number;
 
@@ -32,6 +35,38 @@ public class StarterXclickFormData extends FormData {
 
   public void setItem_number(String item_number) {
     this.item_number = item_number;
+  }
+
+  public String getCmd() {
+    return cmd;
+  }
+
+  public void setCmd(String cmd) {
+    this.cmd = cmd;
+  }
+
+  public BigDecimal getHandling() {
+    return handling;
+  }
+
+  public void setHandling(BigDecimal handling) {
+    this.handling = handling;
+  }
+
+  public BigDecimal getTax() {
+    return tax;
+  }
+
+  public void setTax(BigDecimal tax) {
+    this.tax = tax;
+  }
+
+  public String getInvoice() {
+    return invoice;
+  }
+
+  public void setInvoice(String invoice) {
+    this.invoice = invoice;
   }
 
 }
